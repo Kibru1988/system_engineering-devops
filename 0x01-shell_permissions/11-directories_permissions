@@ -1,6 +1,2 @@
 #!/bin/bash
-# This script adds execute permission to all subdirectories
-# of the current directory for the group owner and all other users.
-# Regular files are not changed.
-
 find . -maxdepth 1 -type d -exec chmod go+x {} \;
