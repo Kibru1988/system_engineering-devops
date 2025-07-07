@@ -1,11 +1,11 @@
-    #!/usr/bin/env bash
-    # This script lists files in the current directory, displaying only the part after the first dash.
-    # Using a glob '*' is more robust than iterating over 'ls' output.
-    for filename in *; do
-        # Check if the filename contains at least one dash
-        if [[ "$filename" == *'-'* ]]; then
-            # Use parameter expansion to remove the longest match of '*-' from the beginning
-            # This effectively removes everything up to and including the first dash.
-            echo "${filename##*-}"
-        fi
-    done
+#!/usr/bin/env bash
+# This script lists files in the current directory, displaying only the part after the first dash.
+# Using a glob '*' is more robust than iterating over 'ls' output.
+for filename in *; do
+    # Check if the filename contains at least one dash
+    if [[ "$filename" == *'-'* ]]; then
+        # Use parameter expansion to remove the longest match of '*-' from the beginning
+        # This effectively removes everything up to and including the first dash.
+        echo "${filename##*-}"
+    fi
+done
