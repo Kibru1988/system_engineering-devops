@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times using a while loop
-for i in $(seq 1 10); do
+# This script is displaying "Best School" 10 times
+for _ in $(seq 1 10); do  # Changed 'i' to '_'
     echo "Best School"
 done
