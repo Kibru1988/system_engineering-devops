@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 # A Bash script that forcibly kills the 7-highlander process using SIGKILL (signal 9).
 
-# Find the PID of the 7-highlander process more robustly
-# We use 'grep -v grep' to exclude the grep process itself.
-# We look for the actual script name '7-highlander'.
-PID_TO_KILL=$(ps aux | grep "7-highlander" | grep -v grep | awk '{print $2}')
+# Use pkill to send SIGKILL (signal 9) to the process based on its command line.
+# The -f option matches against the full command line.
+# The -9 option specifies the SIGKILL signal.
+pkill -9 -f "bash ./7-highlander"
 
-# Check if a PID was found and kill it
-if [ -n "$PID_TO_KILL" ]; then
-  kill -9 "$PID_TO_KILL"
-  echo "Process 7-highlander (PID: $PID_TO_KILL) forcibly terminated."
-else
-  echo "Process 7-highlander not found or already stopped."
-fi
+# For local testing, you might want to add a message:
+# if ! pgrep -f "bash ./7-highlander" > /dev/null; then
+#   echo "7-highlander process forcibly killed."
+# else
+#   echo "Failed to kill 7-highlander process."
+# fi
