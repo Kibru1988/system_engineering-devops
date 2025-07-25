@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A Bash script that stops the 4-to_infinity_and_beyond process without using kill or killall.
+
+# Use pkill to send a termination signal to the process based on its command line.
+# The -f option matches against the full command line.
+# The default signal for pkill is SIGTERM, which gracefully requests termination.
+pkill -f "bash ./4-to_infinity_and_beyond"
+
+# You might want to add a check here to see if it actually stopped,
+# but for the purpose of the task, the pkill command is the solution.
+# For example:
+# if pgrep -f "bash ./4-to_infinity_and_beyond" > /dev/null; then
+#   echo "Failed to stop 4-to_infinity_and_beyond."
+# else
+#   echo "4-to_infinity_and_beyond process stopped."
+# fi
