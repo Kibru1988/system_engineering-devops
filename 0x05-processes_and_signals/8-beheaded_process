@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# A Bash script that forcibly kills the 7-highlander process using SIGKILL (signal 9).
+
+# Use pkill to send SIGKILL (signal 9) to the process based on its command line.
+# The -f option matches against the full command line.
+# The -9 option specifies the SIGKILL signal.
+pkill -9 -f "bash ./7-highlander"
+
+# For local testing, you might want to add a message:
+# if ! pgrep -f "bash ./7-highlander" > /dev/null; then
+#   echo "7-highlander process forcibly killed."
+# else
+#   echo "Failed to kill 7-highlander process."
+# fi
