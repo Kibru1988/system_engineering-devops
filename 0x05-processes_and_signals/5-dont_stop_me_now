@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# A Bash script that stops the 4-to_infinity_and_beyond process.
+
+# Find the PID of the 4-to_infinity_and_beyond process
+# The -f option allows pgrep to search the full command line,
+# ensuring we catch the script even if it's run with './' or a path.
+# We exclude the current script's PID to avoid killing ourselves if the name matches.
+# Using 'bash ./4-to_infinity_and_beyond' as a pattern is more specific
+# to avoid accidentally killing other unrelated processes.
+PID_TO_KILL=$(pgrep -f "bash ./4-to_infinity_and_beyond")
+
+# Check if a PID was found
+if [ -n "$PID_TO_KILL" ]; then
+  kill "$PID_TO_KILL"
+  echo "Process 4-to_infinity_and_beyond (PID: $PID_TO_KILL) terminated."
+else
+  echo "Process 4-to_infinity_and_beyond not found."
+fi
